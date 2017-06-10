@@ -44,10 +44,17 @@ class ConfirmPostViewController: UIViewController {
     
     @IBAction func clickPost(_ sender: Any) {
         let databaseRef = Database.database().reference()
+        
+        /*
+         渡しているデータに問題がありtimelineに表示されていない可能性が高いのでデータが正確に渡せているかを一度確認する
+         userName,commentに関して：Optional型の取扱い考える
+         各変数の中身、渡り方を確認
+        */
+        
         //ユーザー名
-        let userName = getUserNameLabel.text
+        let userName = getUserNameLabel.text!
         //コメント
-        let comment = getCommentTextLabel.text
+        let comment = getCommentTextLabel.text!
         //投稿画像
         var postData:NSData = NSData()
         if let tempPostImage = getPostImageView.image{
