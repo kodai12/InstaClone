@@ -13,7 +13,6 @@
 		2BAE71C51EEA79D800F0979E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE71C31EEA79D800F0979E /* LaunchScreen.storyboard */; };
 		2BAE71CD1EEA7A2700F0979E /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71CC1EEA7A2700F0979E /* TimelineViewController.swift */; };
 		2BAE71D01EEA7ABA00F0979E /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71CE1EEA7ABA00F0979E /* TimelineTableViewCell.swift */; };
-		2BAE71D11EEA7ABA00F0979E /* TimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE71CF1EEA7ABA00F0979E /* TimelineTableViewCell.xib */; };
 		2BAE71F21EEA7CB300F0979E /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71D41EEA7CB300F0979E /* AsyncButton.swift */; };
 		2BAE71F31EEA7CB300F0979E /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71D51EEA7CB300F0979E /* AsyncImageView.swift */; };
 		2BAE71F41EEA7CB300F0979E /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71D61EEA7CB300F0979E /* AutoTextView.swift */; };
@@ -67,7 +66,6 @@
 		2BAE71C61EEA79D800F0979E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BAE71CC1EEA7A2700F0979E /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		2BAE71CE1EEA7ABA00F0979E /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
-		2BAE71CF1EEA7ABA00F0979E /* TimelineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimelineTableViewCell.xib; sourceTree = "<group>"; };
 		2BAE71D41EEA7CB300F0979E /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		2BAE71D51EEA7CB300F0979E /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		2BAE71D61EEA7CB300F0979E /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 			children = (
 				2BAE71CC1EEA7A2700F0979E /* TimelineViewController.swift */,
 				2BAE71CE1EEA7ABA00F0979E /* TimelineTableViewCell.swift */,
-				2BAE71CF1EEA7ABA00F0979E /* TimelineTableViewCell.xib */,
 			);
 			name = TimelineScreen;
 			sourceTree = "<group>";
@@ -315,7 +312,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BAE71D11EEA7ABA00F0979E /* TimelineTableViewCell.xib in Resources */,
 				2BAE71C51EEA79D800F0979E /* LaunchScreen.storyboard in Resources */,
 				2BAE71C21EEA79D800F0979E /* Assets.xcassets in Resources */,
 				2BAE72011EEA7CB300F0979E /* LoadingView.xib in Resources */,

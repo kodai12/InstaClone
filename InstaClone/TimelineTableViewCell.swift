@@ -12,21 +12,31 @@ class TimelineTableViewCell: UITableViewCell {
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var postedImageView: UIImageView!
     @IBOutlet weak var commentLabel: UILabel!
 
     @IBOutlet weak var likeButton: SpringButton!
     @IBOutlet weak var commentButton: SpringButton!
     @IBOutlet weak var snsButton: SpringButton!
     
+    var getPosts: [String:Any] = [:]
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateUI()
+    }
     
     private func updateUI(){
         
         iconImageView.layer.cornerRadius = iconImageView.layer.bounds.width/2
         iconImageView.clipsToBounds = true
-        postImageView.layer.cornerRadius = 5.0
-        postImageView.clipsToBounds = true
+        postedImageView.layer.cornerRadius = 5.0
+        postedImageView.clipsToBounds = true
 
+        userNameLabel.text = getPosts["userName"] as! String?
+        iconImageView.image = getPosts["profileImage"] as! UIImage?
+        postedImageView.image = getPosts["postedImage"] as! UIImage?
+        commentLabel.text = getPosts["comment"] as! String?
     }
     
     private func configureButtonUI(){
