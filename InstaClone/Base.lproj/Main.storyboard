@@ -149,7 +149,7 @@
                         <barButtonItem key="rightBarButtonItem" title="setting" id="qdR-fQ-V3Q">
                             <connections>
                                 <action selector="clickSetting:" destination="zZ7-5k-VqC" id="10K-cv-7fe"/>
-                                <segue destination="qA7-Ac-jUI" kind="push" id="jj4-Gf-ROl"/>
+                                <segue destination="qA7-Ac-jUI" kind="push" identifier="toSetting" id="jj4-Gf-ROl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -166,7 +166,7 @@
         <!--Instagram?-->
         <scene sceneID="R94-cU-1bN">
             <objects>
-                <viewController id="qA7-Ac-jUI" customClass="ConfirmPostViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qA7-Ac-jUI" customClass="ConfirmSettingViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0cO-SP-Am2"/>
                         <viewControllerLayoutGuide type="bottom" id="oQI-Sg-iKB"/>
@@ -272,11 +272,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXZ-6Y-8fX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXZ-6Y-8fX">
                                 <rect key="frame" x="16" y="130" width="343" height="340"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="340" id="0cJ-Kp-yua"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCu-aH-acP">
                                 <rect key="frame" x="74" y="72" width="285" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="hRs-ec-2ED"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -285,15 +291,13 @@
                                 <rect key="frame" x="16" y="72" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EuM-dH-bce"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Gzg-d0-vWC"/>
                                     <constraint firstAttribute="width" constant="50" id="blT-Id-chn"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="q6m-hk-kEd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53G-uc-5cB">
-                                <rect key="frame" x="16" y="478" width="343" height="103"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="BcW-xh-3A5"/>
-                                    <constraint firstAttribute="height" constant="103" id="kR3-2t-rMu"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkY-tL-FQf">
+                                <rect key="frame" x="16" y="478" width="343" height="132"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -301,23 +305,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="VPc-my-8fv" secondAttribute="leading" id="3Q2-hF-y0Q"/>
-                            <constraint firstItem="MCu-aH-acP" firstAttribute="top" secondItem="SMY-Ap-GFp" secondAttribute="bottom" constant="8" id="4qS-k0-dJs"/>
-                            <constraint firstItem="fXZ-6Y-8fX" firstAttribute="top" secondItem="VPc-my-8fv" secondAttribute="bottom" constant="8" id="5Rc-M5-3cw"/>
-                            <constraint firstItem="MCu-aH-acP" firstAttribute="leading" secondItem="VPc-my-8fv" secondAttribute="trailing" constant="8" id="6e4-HK-sbF"/>
-                            <constraint firstItem="VPc-my-8fv" firstAttribute="top" secondItem="SMY-Ap-GFp" secondAttribute="bottom" constant="8" id="7rX-g5-5zi"/>
-                            <constraint firstItem="L3J-d9-JJa" firstAttribute="top" secondItem="53G-uc-5cB" secondAttribute="bottom" constant="37" id="9ZP-fU-qbW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="53G-uc-5cB" secondAttribute="trailing" id="HWc-6m-XNh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fXZ-6Y-8fX" secondAttribute="trailing" id="UVI-sR-nxh"/>
-                            <constraint firstItem="53G-uc-5cB" firstAttribute="top" secondItem="fXZ-6Y-8fX" secondAttribute="bottom" constant="8" id="Ykf-OL-Jnz"/>
-                            <constraint firstItem="fXZ-6Y-8fX" firstAttribute="top" secondItem="MCu-aH-acP" secondAttribute="bottom" constant="8" id="Zm2-tQ-PuC"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="fXZ-6Y-8fX" secondAttribute="leading" id="cxr-7I-fFO"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="53G-uc-5cB" secondAttribute="leading" id="nuF-B1-MHG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MCu-aH-acP" secondAttribute="trailing" id="ui2-fN-BtR"/>
+                            <constraint firstItem="MCu-aH-acP" firstAttribute="leading" secondItem="VPc-my-8fv" secondAttribute="trailing" constant="8" symbolic="YES" id="398-8E-gW6"/>
+                            <constraint firstItem="OkY-tL-FQf" firstAttribute="top" secondItem="fXZ-6Y-8fX" secondAttribute="bottom" constant="8" symbolic="YES" id="5DP-WU-aLQ"/>
+                            <constraint firstItem="fXZ-6Y-8fX" firstAttribute="leading" secondItem="VPc-my-8fv" secondAttribute="leading" id="6We-j2-rZ4"/>
+                            <constraint firstItem="MCu-aH-acP" firstAttribute="trailing" secondItem="px5-fR-8fW" secondAttribute="trailingMargin" id="8TQ-qI-nZu"/>
+                            <constraint firstItem="fXZ-6Y-8fX" firstAttribute="leading" secondItem="OkY-tL-FQf" secondAttribute="leading" id="KnL-Jp-AaC"/>
+                            <constraint firstItem="MCu-aH-acP" firstAttribute="trailing" secondItem="fXZ-6Y-8fX" secondAttribute="trailing" id="Nrn-49-dtv"/>
+                            <constraint firstItem="MCu-aH-acP" firstAttribute="top" secondItem="VPc-my-8fv" secondAttribute="top" id="QYT-qL-FXZ"/>
+                            <constraint firstItem="MCu-aH-acP" firstAttribute="top" secondItem="SMY-Ap-GFp" secondAttribute="bottom" constant="8" symbolic="YES" id="XA8-vF-dxZ"/>
+                            <constraint firstItem="fXZ-6Y-8fX" firstAttribute="top" secondItem="MCu-aH-acP" secondAttribute="bottom" constant="8" symbolic="YES" id="deL-tc-oKE"/>
+                            <constraint firstItem="MCu-aH-acP" firstAttribute="bottom" secondItem="VPc-my-8fv" secondAttribute="bottom" id="hUd-Jd-cAF"/>
+                            <constraint firstItem="MCu-aH-acP" firstAttribute="trailing" secondItem="OkY-tL-FQf" secondAttribute="trailing" id="zfN-YW-Gco"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Instagram?" id="yZO-i4-jww">
-                        <barButtonItem key="leftBarButtonItem" title="cancel" id="UWc-yD-z4Y"/>
+                        <barButtonItem key="leftBarButtonItem" title="cancel" id="UWc-yD-z4Y">
+                            <connections>
+                                <action selector="postCancelButton:" destination="4Rx-DO-np7" id="lMx-0Y-hB7"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="post" id="I1j-XZ-C3U">
                             <connections>
                                 <action selector="clickPost:" destination="4Rx-DO-np7" id="dL1-UU-A8K"/>
@@ -325,7 +331,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="getCommentTextLabel" destination="53G-uc-5cB" id="sWs-3Z-Vzw"/>
+                        <outlet property="getCommentTextLabel" destination="OkY-tL-FQf" id="B9S-4A-Ggg"/>
                         <outlet property="getIconImageView" destination="VPc-my-8fv" id="iZJ-UM-uRQ"/>
                         <outlet property="getPostImageView" destination="fXZ-6Y-8fX" id="hmu-dd-J1h"/>
                         <outlet property="getUserNameLabel" destination="MCu-aH-acP" id="Wam-iy-PAq"/>
@@ -392,10 +398,10 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Al-Dt-7CU" customClass="SpringButton" customModule="InstaClone" customModuleProvider="target">
-                                <rect key="frame" x="124" y="424" width="127" height="30"/>
+                                <rect key="frame" x="124" y="423" width="127" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="16"/>
-                                <state key="normal" title="crate new user"/>
+                                <state key="normal" title="create new user"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="duration">
@@ -411,6 +417,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createNewUser:" destination="Feu-f8-gSL" eventType="touchUpInside" id="YR1-p3-3Zi"/>
+                                    <segue destination="Hvx-TV-Q2e" kind="show" identifier="toFirstSetting" id="Htz-Qu-ARH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJc-Hr-DdU" customClass="SpringButton" customModule="InstaClone" customModuleProvider="target">
@@ -453,6 +460,130 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beP-yr-kEN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1414" y="-1144"/>
+        </scene>
+        <!--Login2 View Controller-->
+        <scene sceneID="YhZ-ot-Rpn">
+            <objects>
+                <viewController id="Hvx-TV-Q2e" customClass="Login2ViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IDb-Wx-2Lw"/>
+                        <viewControllerLayoutGuide type="bottom" id="nf3-na-Vxe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VMt-ya-chc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DQp-jW-onE">
+                                <rect key="frame" x="147" y="60" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57R-fU-aaV" customClass="SpringButton" customModule="InstaClone" customModuleProvider="target">
+                                <rect key="frame" x="117" y="148" width="141" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="16"/>
+                                <state key="normal" title="setting icon image"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="damping">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="velocity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="spring"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickFirstIconSetting:" destination="Hvx-TV-Q2e" eventType="touchUpInside" id="oW6-DJ-1pE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duY-fX-Zeh" customClass="SpringButton" customModule="InstaClone" customModuleProvider="target">
+                                <rect key="frame" x="106" y="287" width="162" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="16"/>
+                                <state key="normal" title="stting user name"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="damping">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="velocity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="spring"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickFirstUserNameSetting:" destination="Hvx-TV-Q2e" eventType="touchUpInside" id="6Lb-gr-XJf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9a-PS-iEN" customClass="SpringButton" customModule="InstaClone" customModuleProvider="target">
+                                <rect key="frame" x="223" y="501" width="138" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="16"/>
+                                <state key="normal" title="confirm user setting"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="damping">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="velocity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="spring"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="confirmFisrtSetting:" destination="Hvx-TV-Q2e" eventType="touchUpInside" id="10t-hq-5AJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjE-jW-dg8" customClass="SpringButton" customModule="InstaClone" customModuleProvider="target">
+                                <rect key="frame" x="61" y="501" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="16"/>
+                                <state key="normal" title="cancel"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="damping">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="velocity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="spring"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="firstSettingCancel:" destination="Hvx-TV-Q2e" eventType="touchUpInside" id="CkM-IP-9D7"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nhf-Iv-qR9">
+                                <rect key="frame" x="60" y="249" width="255" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="e68-mW-l0F"/>
+                    <connections>
+                        <outlet property="firstSettingIconImage" destination="DQp-jW-onE" id="YA1-F7-d8z"/>
+                        <outlet property="firstSettingUserName" destination="Nhf-Iv-qR9" id="EF4-AA-qbD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wWA-y4-oIJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2224.8000000000002" y="-1146.4767616191905"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ynd-FY-cXK">

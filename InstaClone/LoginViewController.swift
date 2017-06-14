@@ -46,18 +46,20 @@ class LoginViewController: UIViewController {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user,error) in
                 if error == nil {
                     
-                    UserDefaults.standard.set("check", forKey: "check")
+                    UserDefaults.standard.set("loginCheck", forKey: "loginCheck")
                     self.dismiss(animated: true, completion: nil)
-                } else{
+                } else {
                     let alertViewController = UIAlertController(title: "error", message: error?.localizedDescription, preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "hoge", style: .cancel, handler: nil)
                     alertViewController.addAction(okAction)
                     self.present(alertViewController, animated: true, completion: nil)
                 }
-                
             })
+            // 次のVCに遷移
+            performSegue(withIdentifier: "toFirstSetting", sender: nil)
         }
     }
+    
 
     @IBAction func login(_ sender: Any) {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {(user,error) in

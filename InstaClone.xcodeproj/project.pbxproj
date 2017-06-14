@@ -54,6 +54,7 @@
 		2BAE72331EEC6E0300F0979E /* ConfirmSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE72321EEC6E0200F0979E /* ConfirmSettingViewController.swift */; };
 		2BAE72361EEC7B0100F0979E /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE72341EEC7B0100F0979E /* FavoriteTableViewCell.swift */; };
 		2BAE72371EEC7B0100F0979E /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE72351EEC7B0100F0979E /* FavoriteTableViewCell.xib */; };
+		2BAE723A1EED57B100F0979E /* Login2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE72391EED57B100F0979E /* Login2ViewController.swift */; };
 		98B6D3EB6489CD933E1443D5 /* Pods_InstaClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F2F47AE7FEDFDA49733BF24 /* Pods_InstaClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		2BAE72321EEC6E0200F0979E /* ConfirmSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmSettingViewController.swift; sourceTree = "<group>"; };
 		2BAE72341EEC7B0100F0979E /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		2BAE72351EEC7B0100F0979E /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
+		2BAE72391EED57B100F0979E /* Login2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login2ViewController.swift; path = Assets.xcassets/Login2ViewController.swift; sourceTree = "<group>"; };
 		4F2F47AE7FEDFDA49733BF24 /* Pods_InstaClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		699C2F360BECB1A73B39D99E /* Pods-InstaClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaClone/Pods-InstaClone.release.xcconfig"; sourceTree = "<group>"; };
 		924A6B987C0E546D34E1CB4F /* Pods-InstaClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaClone/Pods-InstaClone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,7 +160,7 @@
 			children = (
 				2BAE71D31EEA7CB300F0979E /* Spring */,
 				2BAE71BA1EEA79D800F0979E /* AppDelegate.swift */,
-				2BAE72221EEA9EB400F0979E /* LoginViewController.swift */,
+				2BAE723B1EED57BB00F0979E /* LoginScreen */,
 				2BAE71D21EEA7AC200F0979E /* TimelineScreen */,
 				2BAE721C1EEA8C0900F0979E /* PostViewController.swift */,
 				2BAE722A1EEB87D900F0979E /* ConfirmPostViewController.swift */,
@@ -230,6 +232,15 @@
 				2BAE72351EEC7B0100F0979E /* FavoriteTableViewCell.xib */,
 			);
 			name = FavoriteListScreen;
+			sourceTree = "<group>";
+		};
+		2BAE723B1EED57BB00F0979E /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE72221EEA9EB400F0979E /* LoginViewController.swift */,
+				2BAE72391EED57B100F0979E /* Login2ViewController.swift */,
+			);
+			name = LoginScreen;
 			sourceTree = "<group>";
 		};
 		A58B1AB5126A4020BBB5893C /* Frameworks */ = {
@@ -408,6 +419,7 @@
 				2BAE72051EEA7CB300F0979E /* SpringAnimation.swift in Sources */,
 				2BAE71F71EEA7CB300F0979E /* DesignableImageView.swift in Sources */,
 				2BAE71CD1EEA7A2700F0979E /* TimelineViewController.swift in Sources */,
+				2BAE723A1EED57B100F0979E /* Login2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

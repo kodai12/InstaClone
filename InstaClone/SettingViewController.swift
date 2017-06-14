@@ -23,8 +23,8 @@ class SettingViewController: UIViewController {
         if Auth.auth().currentUser != nil{
             let user = Auth.auth().currentUser
             let currentUserName = user?.displayName
-            let currentIconURL = user?.photoURL
             settingUserNameLabel.text = currentUserName
+            let currentIconURL = user?.photoURL
             let URLreq = URLRequest(url: currentIconURL!)
             let conf = URLSessionConfiguration.default
             let session = URLSession(configuration: conf)
@@ -41,13 +41,15 @@ class SettingViewController: UIViewController {
              ログイン中のユーザーの投稿した画像を取得する
              ifでcurrentUserのuidとPostsの中のuserIdが一致した場合という条件文で場合分け
             */
+        }else{
+            print("Error!!")
         }
         
         
     }
     
     @IBAction func clickSetting(_ sender: Any) {
-        
+        performSegue(withIdentifier: "toSetting", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {
