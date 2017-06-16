@@ -82,6 +82,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate,UINa
     
     
     @IBAction func nextButton(_ sender: Any) {
+        selectedImageView = UIImageView()
+        commentTextField = UITextField()
+        commentTextField.resignFirstResponder()
         performSegue(withIdentifier: "confirmPost", sender: nil)
     }
     

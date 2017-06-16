@@ -19,7 +19,6 @@ class ConfirmPostViewController: UIViewController {
     var items = [NSDictionary]()
     var editImage = UIImage()
     var editComment = String()
-    var a = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +53,6 @@ class ConfirmPostViewController: UIViewController {
     
     @IBAction func clickPost(_ sender: Any) {
         let databaseRef = Database.database().reference()
-        
-        /*
-         渡しているデータに問題がありtimelineに表示されていない可能性が高いのでデータが正確に渡せているかを一度確認する
-         userName,commentに関して：Optional型の取扱い考える
-         各変数の中身、渡り方を確認
-        */
         
         //ユーザーID
         let userID = Auth.auth().currentUser?.uid

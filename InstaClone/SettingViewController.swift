@@ -18,45 +18,41 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // 現在のプロフィール画像とユーザー名を取得
-        if Auth.auth().currentUser != nil{
-            let user = Auth.auth().currentUser
-            let currentUserName = user?.displayName
-            settingUserNameLabel.text = currentUserName
-            let currentIconURL = user?.photoURL
-            let URLreq = URLRequest(url: currentIconURL!)
-            let conf = URLSessionConfiguration.default
-            let session = URLSession(configuration: conf)
-            session.dataTask(with: URLreq, completionHandler: {(data,resp,error) in
-                if(error == nil){
-                    let image = UIImage(data: data!)
-                    self.settingIconImageView.image = image
-                }else{
-                    print("Error:\(error?.localizedDescription)")
-                }
-            }).resume()
-            
-            /*
-             ログイン中のユーザーの投稿した画像を取得する
-             ifでcurrentUserのuidとPostsの中のuserIdが一致した場合という条件文で場合分け
-            */
-        }else{
-            print("Error!!")
-        }
         
+        // データベースからユーザー名とプロフィール画像を取り出し表示
+        settingIconImageView.layer.cornerRadius = settingIconImageView.frame.size.width/2
+        settingIconImageView.clipsToBounds = true
+        
+        let userRef = Database.database().reference()
+        userRef.child("Users").observeSingleEvent(of: .value, with: {(snapshot) in
+            for (_, child) in snapshot.children.enumerated(){
+                let key: String = (child as AnyObject).key
+                userRef.child("Users").child(key).observe(.value, with: {(snapshot) in
+                    if let snap = snapshot.value as? [String:AnyObject]{
+                        self.settingUserNameLabel.text = snap["userName"] as? String
+                        let iconData = snap["profileImage"] as! String
+                        let decodeData = NSData(base64Encoded: iconData, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
+                        let decodeImage = UIImage(data: decodeData as! Data)
+                        self.settingIconImageView.image = decodeImage
+                    }
+                })
+            }
+        })
+        
+        /*
+         ログイン中のユーザーの投稿した画像を取得する
+         ifでcurrentUserのuidとPostsの中のuserIdが一致した場合という条件文で場合分け
+         */
         
     }
     
     @IBAction func clickSetting(_ sender: Any) {
         performSegue(withIdentifier: "toSetting", sender: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+        
     }
-    
-
     
 }

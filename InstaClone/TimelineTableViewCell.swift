@@ -13,11 +13,13 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var postedImageView: UIImageView!
+    @IBOutlet weak var underUserNameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
 
-    @IBOutlet weak var likeButton: SpringButton!
-    @IBOutlet weak var commentButton: SpringButton!
-    @IBOutlet weak var snsButton: SpringButton!
+    @IBOutlet weak var likeButton: DesignableButton!
+    @IBOutlet weak var commentButton: DesignableButton!
+    @IBOutlet weak var snsButton: DesignableButton!
+    
 
     
     func updateUI(){
@@ -29,60 +31,58 @@ class TimelineTableViewCell: UITableViewCell {
         
     }
     
-    private func configureButtonUI(){
-        likeButton.layer.cornerRadius = 3.0
-        likeButton.layer.borderWidth = 2.0
-        likeButton.layer.borderColor = UIColor.lightGray.cgColor
+    func configureButtonUI(){
+        likeButton.cornerRadius = 3.0
+        likeButton.borderWidth = 1.0
+        likeButton.borderColor = UIColor.lightGray
         likeButton.tintColor = UIColor.lightGray
         
-        commentButton.layer.cornerRadius = 3.0
-        commentButton.layer.borderWidth = 2.0
-        commentButton.layer.borderColor = UIColor.lightGray.cgColor
+        commentButton.cornerRadius = 3.0
+        commentButton.borderWidth = 1.0
+        commentButton.borderColor = UIColor.lightGray
         commentButton.tintColor = UIColor.lightGray
         
-        snsButton.layer.cornerRadius = 3.0
-        snsButton.layer.borderWidth = 2.0
-        snsButton.layer.borderColor = UIColor.lightGray.cgColor
+        snsButton.cornerRadius = 3.0
+        snsButton.borderWidth = 1.0
+        snsButton.borderColor = UIColor.lightGray
         snsButton.tintColor = UIColor.lightGray
-        
-        configureButtonUI()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
-    
+        
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
     
     @IBAction func clickLikeButton(_ sender: Any) {
         likeButton.animation = "pop"
         likeButton.curve = "spring"
-        likeButton.duration = 15.0
-        likeButton.damping = 1.0
-        likeButton.velocity = 2.0
+        likeButton.duration = 1.5
+        likeButton.damping = 0.1
+        likeButton.velocity = 0.2
         likeButton.animate()
     }
     
     @IBAction func clickCommentButton(_ sender: Any) {
         commentButton.animation = "pop"
         commentButton.curve = "spring"
-        commentButton.duration = 15.0
-        commentButton.damping = 1.0
-        commentButton.velocity = 2.0
+        commentButton.duration = 1.5
+        commentButton.damping = 0.1
+        commentButton.velocity = 0.2
         commentButton.animate()
     }
-
+    
     @IBAction func clickSNSButton(_ sender: Any) {
         snsButton.animation = "pop"
         snsButton.curve = "spring"
-        snsButton.duration = 15.0
-        snsButton.damping = 1.0
-        snsButton.velocity = 2.0
+        snsButton.duration = 1.5
+        snsButton.damping = 0.1
+        snsButton.velocity = 0.2
         snsButton.animate()
     }
     

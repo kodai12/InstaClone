@@ -13,6 +13,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var timelineTableView: UITableView!
     var posts:[Post] = []
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +34,18 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
             timelineTableView.register(nib, forCellReuseIdentifier: "postCell")
             
             navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Bradley Hand",size: 17)!]
-            print("posts is \(posts)")
+            // UIRefreshControlの設定
+            refreshControl.attributedTitle = NSAttributedString(string: "refresh timeline")
+            refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+            timelineTableView.addSubview(refreshControl)
         }
-        
+    }
+    
+    func refresh(){
+        posts = []
+        loadData()
+        timelineTableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     func loadData() {
@@ -53,7 +63,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
                         }
                     }
                     self.posts = sortedPosts
-                    print("posts is \(self.posts)")
+                    self.posts = self.posts.reversed()
                     self.timelineTableView.reloadData()
                 })
             }
@@ -88,8 +98,11 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! TimelineTableViewCell
+        
+        // 取得したデータをviewに表示
         let post = posts[indexPath.row]
         cell.userNameLabel.text = post.userName
+        cell.underUserNameLabel.text = post.userName
         cell.commentLabel.text = post.comment
         let decodProfileData = NSData(base64Encoded: post.profileImageURL, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
         let decodeProfileImage = UIImage(data: decodProfileData! as Data)
@@ -97,6 +110,9 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         let decodPostedData = NSData(base64Encoded: post.postedImageURL, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
         let decodePostedImage = UIImage(data: decodPostedData! as Data)
         cell.postedImageView.image = decodePostedImage!
+        
+        cell.updateUI()
+        cell.configureButtonUI()
         
         return cell
     }
