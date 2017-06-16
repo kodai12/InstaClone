@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BAC6DF11EF3C8090067FF19 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6DF01EF3C8090067FF19 /* Post.swift */; };
 		2BAE71BB1EEA79D800F0979E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71BA1EEA79D800F0979E /* AppDelegate.swift */; };
 		2BAE71C01EEA79D800F0979E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE71BE1EEA79D800F0979E /* Main.storyboard */; };
 		2BAE71C21EEA79D800F0979E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE71C11EEA79D800F0979E /* Assets.xcassets */; };
@@ -42,7 +43,6 @@
 		2BAE720C1EEA7CB300F0979E /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71EF1EEA7CB300F0979E /* TransitionManager.swift */; };
 		2BAE720D1EEA7CB300F0979E /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71F01EEA7CB300F0979E /* TransitionZoom.swift */; };
 		2BAE720E1EEA7CB300F0979E /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71F11EEA7CB300F0979E /* UnwindSegue.swift */; };
-		2BAE72141EEA83AF00F0979E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE72131EEA83AF00F0979E /* Post.swift */; };
 		2BAE721D1EEA8C0900F0979E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE721C1EEA8C0900F0979E /* PostViewController.swift */; };
 		2BAE721F1EEA980000F0979E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE721E1EEA980000F0979E /* FavoriteViewController.swift */; };
 		2BAE72211EEA980A00F0979E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE72201EEA980A00F0979E /* SettingViewController.swift */; };
@@ -54,10 +54,12 @@
 		2BAE72361EEC7B0100F0979E /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE72341EEC7B0100F0979E /* FavoriteTableViewCell.swift */; };
 		2BAE72371EEC7B0100F0979E /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE72351EEC7B0100F0979E /* FavoriteTableViewCell.xib */; };
 		2BAE723A1EED57B100F0979E /* Login2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE72391EED57B100F0979E /* Login2ViewController.swift */; };
+		2BAE723F1EF2726200F0979E /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE723D1EF2726100F0979E /* TableViewCell.xib */; };
 		98B6D3EB6489CD933E1443D5 /* Pods_InstaClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F2F47AE7FEDFDA49733BF24 /* Pods_InstaClone.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BAC6DF01EF3C8090067FF19 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2BAE71B71EEA79D800F0979E /* InstaClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE71BA1EEA79D800F0979E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BAE71BF1EEA79D800F0979E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,7 +98,6 @@
 		2BAE71EF1EEA7CB300F0979E /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		2BAE71F01EEA7CB300F0979E /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		2BAE71F11EEA7CB300F0979E /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
-		2BAE72131EEA83AF00F0979E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2BAE721C1EEA8C0900F0979E /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		2BAE721E1EEA980000F0979E /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		2BAE72201EEA980A00F0979E /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		2BAE72341EEC7B0100F0979E /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		2BAE72351EEC7B0100F0979E /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		2BAE72391EED57B100F0979E /* Login2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login2ViewController.swift; path = Assets.xcassets/Login2ViewController.swift; sourceTree = "<group>"; };
+		2BAE723D1EF2726100F0979E /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		4F2F47AE7FEDFDA49733BF24 /* Pods_InstaClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		699C2F360BECB1A73B39D99E /* Pods-InstaClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaClone/Pods-InstaClone.release.xcconfig"; sourceTree = "<group>"; };
 		924A6B987C0E546D34E1CB4F /* Pods-InstaClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaClone/Pods-InstaClone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,8 +169,8 @@
 				2BAE72321EEC6E0200F0979E /* ConfirmSettingViewController.swift */,
 				2BAE71BE1EEA79D800F0979E /* Main.storyboard */,
 				2BAE71C11EEA79D800F0979E /* Assets.xcassets */,
+				2BAC6DF01EF3C8090067FF19 /* Post.swift */,
 				2BAE71C31EEA79D800F0979E /* LaunchScreen.storyboard */,
-				2BAE72131EEA83AF00F0979E /* Post.swift */,
 				2BAE71C61EEA79D800F0979E /* Info.plist */,
 				2BAE72281EEB80FF00F0979E /* GoogleService-Info.plist */,
 			);
@@ -180,6 +182,7 @@
 			children = (
 				2BAE71CC1EEA7A2700F0979E /* TimelineViewController.swift */,
 				2BAE71CE1EEA7ABA00F0979E /* TimelineTableViewCell.swift */,
+				2BAE723D1EF2726100F0979E /* TableViewCell.xib */,
 			);
 			name = TimelineScreen;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				2BAE72011EEA7CB300F0979E /* LoadingView.xib in Resources */,
 				2BAE71FE1EEA7CB300F0979E /* Info.plist in Resources */,
 				2BAE72371EEC7B0100F0979E /* FavoriteTableViewCell.xib in Resources */,
+				2BAE723F1EF2726200F0979E /* TableViewCell.xib in Resources */,
 				2BAE71C01EEA79D800F0979E /* Main.storyboard in Resources */,
 				2BAE72291EEB80FF00F0979E /* GoogleService-Info.plist in Resources */,
 			);
@@ -400,7 +404,6 @@
 				2BAE71FA1EEA7CB300F0979E /* DesignableTextField.swift in Sources */,
 				2BAE720C1EEA7CB300F0979E /* TransitionManager.swift in Sources */,
 				2BAE72081EEA7CB300F0979E /* SpringLabel.swift in Sources */,
-				2BAE72141EEA83AF00F0979E /* Post.swift in Sources */,
 				2BAE71F21EEA7CB300F0979E /* AsyncButton.swift in Sources */,
 				2BAE72331EEC6E0300F0979E /* ConfirmSettingViewController.swift in Sources */,
 				2BAE721F1EEA980000F0979E /* FavoriteViewController.swift in Sources */,
@@ -408,6 +411,7 @@
 				2BAE71FB1EEA7CB300F0979E /* DesignableTextView.swift in Sources */,
 				2BAE721D1EEA8C0900F0979E /* PostViewController.swift in Sources */,
 				2BAE720B1EEA7CB300F0979E /* SpringView.swift in Sources */,
+				2BAC6DF11EF3C8090067FF19 /* Post.swift in Sources */,
 				2BAE72231EEA9EB400F0979E /* LoginViewController.swift in Sources */,
 				2BAE720A1EEA7CB300F0979E /* SpringTextView.swift in Sources */,
 				2BAE71FF1EEA7CB300F0979E /* KeyboardLayoutConstraint.swift in Sources */,

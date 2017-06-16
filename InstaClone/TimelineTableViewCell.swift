@@ -18,25 +18,15 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: SpringButton!
     @IBOutlet weak var commentButton: SpringButton!
     @IBOutlet weak var snsButton: SpringButton!
+
     
-    var getPosts: [String:Any] = [:]
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        updateUI()
-    }
-    
-    private func updateUI(){
+    func updateUI(){
         
         iconImageView.layer.cornerRadius = iconImageView.layer.bounds.width/2
         iconImageView.clipsToBounds = true
         postedImageView.layer.cornerRadius = 5.0
         postedImageView.clipsToBounds = true
-
-        userNameLabel.text = getPosts["userName"] as! String?
-        iconImageView.image = getPosts["profileImage"] as! UIImage?
-        postedImageView.image = getPosts["postedImage"] as! UIImage?
-        commentLabel.text = getPosts["comment"] as! String?
+        
     }
     
     private func configureButtonUI(){
@@ -86,7 +76,7 @@ class TimelineTableViewCell: UITableViewCell {
         commentButton.velocity = 2.0
         commentButton.animate()
     }
-    
+
     @IBAction func clickSNSButton(_ sender: Any) {
         snsButton.animation = "pop"
         snsButton.curve = "spring"

@@ -2,34 +2,15 @@
 //  Post.swift
 //  InstaClone
 //
-//  Created by 迫地康大 on 2017/06/09.
+//  Created by 迫地康大 on 2017/06/16.
 //  Copyright © 2017年 sakochi. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class Post {
-    // プロパティー
-    var id: String
-    var userName: String
-    var iconImage: UIImage
-    var postImage: UIImage!     // 写真がない可能性もある
-    var comment: String
-    
-    
-    // ポストIDはポストのデータを習得するときに必要
-    
-    init(postId: String, userName: String,iconImage: UIImage, postImage: UIImage!, comment: String)
-    {
-        self.id = postId
-        self.userName = userName
-        self.iconImage = iconImage
-        self.postImage = postImage      // なしでもOK
-        self.comment = comment
-    }
-    
-    static let allPost = {
-        
-    }
-    
+struct Post {
+    let userName: String
+    let profileImageURL: String
+    let postedImageURL: String
+    let comment: String
 }
