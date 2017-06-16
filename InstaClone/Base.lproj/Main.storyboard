@@ -359,7 +359,7 @@
         <!--Instagram?-->
         <scene sceneID="HG0-Wy-763">
             <objects>
-                <viewController id="c28-Im-nk8" customClass="TimelineViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timelineVC" id="c28-Im-nk8" customClass="TimelineViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0ju-1n-sms"/>
                         <viewControllerLayoutGuide type="bottom" id="jgt-8M-DCB"/>

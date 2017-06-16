@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class ConfirmPostViewController: UIViewController {
-
+    
     @IBOutlet weak var getIconImageView: UIImageView!
     @IBOutlet weak var getUserNameLabel: UILabel!
     @IBOutlet weak var getPostImageView: UIImageView!
@@ -22,7 +22,7 @@ class ConfirmPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // 遷移元から受け取ったデータを表示
         let postImageSize = CGRect(x: 16, y: 130, width: 340, height: 340)
         getPostImageView.frame = postImageSize
@@ -30,7 +30,7 @@ class ConfirmPostViewController: UIViewController {
         getCommentTextLabel.text = editComment
         
         // データベースからユーザー名とプロフィール画像を取り出し表示
-        getIconImageView.layer.cornerRadius = 8.0
+        getIconImageView.layer.cornerRadius = getIconImageView.frame.size.width/2
         getIconImageView.clipsToBounds = true
         
         let userRef = Database.database().reference()
@@ -52,7 +52,7 @@ class ConfirmPostViewController: UIViewController {
     }
     
     @IBAction func clickPost(_ sender: Any) {
-        let databaseRef = Database.database().reference()
+        let databaseRef = Database.database().reference(fromURL: "https://instaclone-653d2.firebaseio.com/")
         
         //ユーザーID
         let userID = Auth.auth().currentUser?.uid
@@ -76,7 +76,7 @@ class ConfirmPostViewController: UIViewController {
         let user:NSDictionary = ["userID":userID!, "userName":userName, "comment":comment,"profileImage":iconImage,"postedImage":postImage]
         databaseRef.child("Posts").childByAutoId().setValue(user)
         //投稿が完了したらタイムラインに戻る
-        _ = self.navigationController?.popToViewController((navigationController?.viewControllers[0])!, animated: true)
+        _ = self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func postCancelButton(_ sender: Any) {
@@ -85,10 +85,10 @@ class ConfirmPostViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+        
     }
     
-
-
-
+    
+    
+    
 }
