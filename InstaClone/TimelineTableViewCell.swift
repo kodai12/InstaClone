@@ -20,7 +20,7 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var commentButton: DesignableButton!
     @IBOutlet weak var snsButton: DesignableButton!
     
-    var getPosts:[Post] = []
+    var getPost:[Post] = []
     
     func updateUI(){
         
@@ -67,11 +67,6 @@ class TimelineTableViewCell: UITableViewCell {
         likeButton.velocity = 0.2
         likeButton.animate()
         
-        guard let favoriteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "favoriteVC") as? FavoriteViewController else {
-            print("can't not instantiate view controller")
-            return
-        }
-        favoriteVC.favoritePosts = self.getPosts
     }
     
     @IBAction func clickCommentButton(_ sender: Any) {
