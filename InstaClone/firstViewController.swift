@@ -1,21 +1,19 @@
 //
-//  FavoriteViewController.swift
+//  firstViewController.swift
 //  InstaClone
 //
-//  Created by 迫地康大 on 2017/06/09.
+//  Created by 迫地康大 on 2017/06/17.
 //  Copyright © 2017年 sakochi. All rights reserved.
 //
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
-    
-    var favoritePosts:[Post] = []
+class firstViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("favoritePosts is \(favoritePosts)")
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

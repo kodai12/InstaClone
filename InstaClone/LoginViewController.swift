@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
         
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if emailTextField.isFirstResponder{
             emailTextField.resignFirstResponder()
@@ -63,13 +64,16 @@ class LoginViewController: UIViewController {
 
     @IBAction func login(_ sender: Any) {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: {(user,error) in
-            if error == nil{
-                
-            } else{
-                let alertViewController = UIAlertController(title: "error", message: error?.localizedDescription, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "hoge", style: .cancel, handler: nil)
-                alertViewController.addAction(okAction)
-                self.present(alertViewController, animated: true, completion: nil)
+            if let error = error{
+                print("longin error: \(error)")
+                return
+            }
+            
+            if let user = user{
+                print("login success! user: \(user)")
+                UserDefaults.standard.set("loginCheck", forKey: "loginCheck")
+                let firstTVC: firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "firstTBC") as! firstViewController
+                self.present(firstTVC, animated: true, completion: nil)
             }
         })
     }

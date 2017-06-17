@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B8A7CE11EF4BAEC002B8B9B /* firstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8A7CE01EF4BAEC002B8B9B /* firstViewController.swift */; };
 		2BAC6DF11EF3C8090067FF19 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6DF01EF3C8090067FF19 /* Post.swift */; };
 		2BAE71BB1EEA79D800F0979E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71BA1EEA79D800F0979E /* AppDelegate.swift */; };
 		2BAE71C01EEA79D800F0979E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE71BE1EEA79D800F0979E /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B8A7CE01EF4BAEC002B8B9B /* firstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstViewController.swift; sourceTree = "<group>"; };
 		2BAC6DF01EF3C8090067FF19 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2BAE71B71EEA79D800F0979E /* InstaClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE71BA1EEA79D800F0979E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2B8A7CDF1EF4ADDD002B8B9B /* SettingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE72201EEA980A00F0979E /* SettingViewController.swift */,
+				2BAE72321EEC6E0200F0979E /* ConfirmSettingViewController.swift */,
+			);
+			name = SettingScreen;
+			sourceTree = "<group>";
+		};
+		2B8A7CE21EF4BB89002B8B9B /* PostScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE721C1EEA8C0900F0979E /* PostViewController.swift */,
+				2BAE722A1EEB87D900F0979E /* ConfirmPostViewController.swift */,
+			);
+			name = PostScreen;
+			sourceTree = "<group>";
+		};
 		2BAE71AE1EEA79D800F0979E = {
 			isa = PBXGroup;
 			children = (
@@ -160,13 +180,12 @@
 			children = (
 				2BAE71D31EEA7CB300F0979E /* Spring */,
 				2BAE71BA1EEA79D800F0979E /* AppDelegate.swift */,
+				2B8A7CE01EF4BAEC002B8B9B /* firstViewController.swift */,
 				2BAE723B1EED57BB00F0979E /* LoginScreen */,
 				2BAE71D21EEA7AC200F0979E /* TimelineScreen */,
-				2BAE721C1EEA8C0900F0979E /* PostViewController.swift */,
-				2BAE722A1EEB87D900F0979E /* ConfirmPostViewController.swift */,
+				2B8A7CE21EF4BB89002B8B9B /* PostScreen */,
 				2BAE72381EEC7B0900F0979E /* FavoriteListScreen */,
-				2BAE72201EEA980A00F0979E /* SettingViewController.swift */,
-				2BAE72321EEC6E0200F0979E /* ConfirmSettingViewController.swift */,
+				2B8A7CDF1EF4ADDD002B8B9B /* SettingScreen */,
 				2BAE71BE1EEA79D800F0979E /* Main.storyboard */,
 				2BAE71C11EEA79D800F0979E /* Assets.xcassets */,
 				2BAC6DF01EF3C8090067FF19 /* Post.swift */,
@@ -392,6 +411,7 @@
 				2BAE71F51EEA7CB300F0979E /* BlurView.swift in Sources */,
 				2BAE720E1EEA7CB300F0979E /* UnwindSegue.swift in Sources */,
 				2BAE72001EEA7CB300F0979E /* LoadingView.swift in Sources */,
+				2B8A7CE11EF4BAEC002B8B9B /* firstViewController.swift in Sources */,
 				2BAE72091EEA7CB300F0979E /* SpringTextField.swift in Sources */,
 				2BAE72041EEA7CB300F0979E /* Spring.swift in Sources */,
 				2BAE71BB1EEA79D800F0979E /* AppDelegate.swift in Sources */,

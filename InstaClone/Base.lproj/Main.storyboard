@@ -65,7 +65,7 @@
         <!--Favorite View Controller-->
         <scene sceneID="kVz-Kc-Qow">
             <objects>
-                <viewController id="bpN-X1-SRG" customClass="FavoriteViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="favoriteVC" id="bpN-X1-SRG" customClass="FavoriteViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6r4-I1-93T"/>
                         <viewControllerLayoutGuide type="bottom" id="1cp-Vt-DcP"/>
@@ -79,13 +79,51 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="433" id="bT9-rL-deG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="433" id="bT9-rL-deG" customClass="FavoriteTableViewCell" customModule="InstaClone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="433"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bT9-rL-deG" id="pFC-pK-Hdh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="432"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="433"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBy-Qp-0z9">
+                                                    <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKk-sK-oPd">
+                                                    <rect key="frame" x="66" y="8" width="301" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9t2-Rx-FKK">
+                                                    <rect key="frame" x="8" y="66" width="359" height="261"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sc6-Vf-lzU">
+                                                    <rect key="frame" x="8" y="335" width="359" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="comment" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUb-gU-HG0">
+                                                    <rect key="frame" x="8" y="364" width="359" height="52"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoriteCommentText" destination="AUb-gU-HG0" id="SYO-79-YaU"/>
+                                            <outlet property="favoriteIconImage" destination="vBy-Qp-0z9" id="435-XC-OAR"/>
+                                            <outlet property="favoritePostedImage" destination="9t2-Rx-FKK" id="TOQ-Sh-vYS"/>
+                                            <outlet property="favoriteUnderUserName" destination="sc6-Vf-lzU" id="LWg-ll-dxp"/>
+                                            <outlet property="favoriteUserName" destination="jKk-sK-oPd" id="det-45-YKJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -359,7 +397,7 @@
         <!--Instagram?-->
         <scene sceneID="HG0-Wy-763">
             <objects>
-                <viewController storyboardIdentifier="timelineVC" id="c28-Im-nk8" customClass="TimelineViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timelineVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c28-Im-nk8" customClass="TimelineViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0ju-1n-sms"/>
                         <viewControllerLayoutGuide type="bottom" id="jgt-8M-DCB"/>
@@ -604,10 +642,10 @@
             </objects>
             <point key="canvasLocation" x="2224.8000000000002" y="-1146.4767616191905"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--First View Controller-->
         <scene sceneID="Ynd-FY-cXK">
             <objects>
-                <tabBarController id="IJg-nr-b95" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="firstTBC" id="IJg-nr-b95" customClass="firstViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="afm-R4-9hL"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="9Gc-A7-bJ0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -629,7 +667,7 @@
         <!--Navigation Controller-->
         <scene sceneID="X5Y-G3-RUG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mSG-Xy-Vhw" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="timelineNC" automaticallyAdjustsScrollViewInsets="NO" id="mSG-Xy-Vhw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="recents" id="Dq6-Lh-BdZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PiB-vl-DQm">

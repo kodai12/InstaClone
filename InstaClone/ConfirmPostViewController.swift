@@ -76,7 +76,8 @@ class ConfirmPostViewController: UIViewController {
         let user:NSDictionary = ["userID":userID!, "userName":userName, "comment":comment,"profileImage":iconImage,"postedImage":postImage]
         databaseRef.child("Posts").childByAutoId().setValue(user)
         //投稿が完了したらタイムラインに戻る
-        _ = self.navigationController?.popToRootViewController(animated: true)
+        let firstTVC: firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "firstTBC") as! firstViewController
+        self.present(firstTVC, animated: true, completion: nil)
     }
     
     @IBAction func postCancelButton(_ sender: Any) {

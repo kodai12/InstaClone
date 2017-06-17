@@ -20,7 +20,7 @@ class Login2ViewController: UIViewController,UIImagePickerControllerDelegate,UIT
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        firstSettingIconImage.layer.cornerRadius = 8.0
+        firstSettingIconImage.layer.cornerRadius = firstSettingUserName.bounds.size.width/2
         firstSettingIconImage.clipsToBounds = true
         
         firstSettingUserName.delegate = self

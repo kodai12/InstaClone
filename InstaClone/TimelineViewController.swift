@@ -114,6 +114,8 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.updateUI()
         cell.configureButtonUI()
         
+        cell.getPosts = [post]
+        
         return cell
     }
     
