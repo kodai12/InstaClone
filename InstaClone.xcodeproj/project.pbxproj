@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B8A7CE11EF4BAEC002B8B9B /* firstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8A7CE01EF4BAEC002B8B9B /* firstViewController.swift */; };
+		2B8A7CE41EF4D154002B8B9B /* SettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8A7CE31EF4D154002B8B9B /* SettingCollectionViewCell.swift */; };
 		2BAC6DF11EF3C8090067FF19 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC6DF01EF3C8090067FF19 /* Post.swift */; };
 		2BAE71BB1EEA79D800F0979E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE71BA1EEA79D800F0979E /* AppDelegate.swift */; };
 		2BAE71C01EEA79D800F0979E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE71BE1EEA79D800F0979E /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		2B8A7CE01EF4BAEC002B8B9B /* firstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstViewController.swift; sourceTree = "<group>"; };
+		2B8A7CE31EF4D154002B8B9B /* SettingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCollectionViewCell.swift; sourceTree = "<group>"; };
 		2BAC6DF01EF3C8090067FF19 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2BAE71B71EEA79D800F0979E /* InstaClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE71BA1EEA79D800F0979E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				2BAE72201EEA980A00F0979E /* SettingViewController.swift */,
+				2B8A7CE31EF4D154002B8B9B /* SettingCollectionViewCell.swift */,
 				2BAE72321EEC6E0200F0979E /* ConfirmSettingViewController.swift */,
 			);
 			name = SettingScreen;
@@ -439,6 +442,7 @@
 				2BAE72051EEA7CB300F0979E /* SpringAnimation.swift in Sources */,
 				2BAE71F71EEA7CB300F0979E /* DesignableImageView.swift in Sources */,
 				2BAE71CD1EEA7A2700F0979E /* TimelineViewController.swift in Sources */,
+				2B8A7CE41EF4D154002B8B9B /* SettingCollectionViewCell.swift in Sources */,
 				2BAE723A1EED57B100F0979E /* Login2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
