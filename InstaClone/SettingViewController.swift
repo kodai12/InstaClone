@@ -49,13 +49,13 @@ class SettingViewController: UIViewController, UICollectionViewDataSource {
     func loadMyData() {
         let userRef = Database.database().reference(fromURL: "https://instaclone-653d2.firebaseio.com/")
         var postsMap = [Int:Post]()
-        userRef.child("Posts").observeSingleEvent(of: .value, with: {(snapshot) in
-            for (postId,child) in snapshot.children.enumerated() {
+        userRef.child("Posts").observeSingleEvent(of: .value, with: {(snapShot) in
+            for (postId,child) in snapShot.children.enumerated() {
                 let key:String = (child as AnyObject).key
                 userRef.child("Posts").child(key).queryOrdered(byChild: (Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: {(snapshot) in
                     postsMap[postId] = self.extractPosts(snapshot)
                     var sortedPosts = [Post]()
-                    for (postId,_) in snapshot.children.enumerated() {
+                    for (postId,_) in snapShot.children.enumerated() {
                         if let unwrappedPostmap = postsMap[postId]{
                             sortedPosts.append(unwrappedPostmap)
                         }
