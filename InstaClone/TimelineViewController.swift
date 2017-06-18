@@ -57,6 +57,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
                 userRef.child("Posts").child(key).observeSingleEvent(of: .value, with: {(snapshot) in
                     postsMap[postId] = self.extractPosts(snapshot)
                     var sortedPosts = [Post]()
+                    print("snapshot.childrenCount is \(snapshot.childrenCount)")
                     for (postId,_) in snapshot.children.enumerated() {
                         if let unwrappedPostmap = postsMap[postId]{
                             sortedPosts.append(unwrappedPostmap)

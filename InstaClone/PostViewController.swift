@@ -80,7 +80,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate,UINa
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func nextButton(_ sender: Any) {
         selectedImageView = UIImageView()
         commentTextField = UITextField()

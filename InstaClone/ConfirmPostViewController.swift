@@ -61,10 +61,9 @@ class ConfirmPostViewController: UIViewController {
         //コメント
         let comment = getCommentTextLabel.text!
         //投稿画像
-        var postData:NSData = NSData()
-        if let tempPostImage = getPostImageView.image{
-            postData = UIImageJPEGRepresentation(tempPostImage, 0.1)! as NSData
-        }
+        let postRatio = (getPostImageView.image?.size.width)! / (getPostImageView.image?.size.height)!
+        let reSizedPostImage = resizedImage(originalImage: getPostImageView.image!, toWidth: imageSize.height * postRatio, andHeight: imageSize.height)
+        let postData = UIImageJPEGRepresentation(reSizedPostImage, 0.1)! as NSData
         let postImage = postData.base64EncodedString(options:NSData.Base64EncodingOptions.lineLength64Characters)
         //プロフィール画像
         var iconData:NSData = NSData()
@@ -78,6 +77,22 @@ class ConfirmPostViewController: UIViewController {
         //投稿が完了したらタイムラインに戻る
         let firstTVC: firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "firstTBC") as! firstViewController
         self.present(firstTVC, animated: true, completion: nil)
+    }
+    
+    struct imageSize{
+        static let height: CGFloat = 480
+    }
+    
+    func resizedImage(originalImage: UIImage, toWidth width:CGFloat, andHeight height: CGFloat) -> UIImage{
+        let newSize = CGSize(width: width, height: height)
+        let newRectangle = CGRect(x: 0, y: 0, width: width, height: height)
+        UIGraphicsBeginImageContext(newSize)
+        originalImage.draw(in: newRectangle)
+        
+        let resizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return resizedImage
     }
     
     @IBAction func postCancelButton(_ sender: Any) {
