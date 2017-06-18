@@ -9,17 +9,21 @@
 import UIKit
 import Firebase
 
-class SettingViewController: UIViewController, UICollectionViewDataSource {
+class SettingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var settingIconImageView: UIImageView!
     @IBOutlet weak var settingUserNameLabel: UILabel!
     @IBOutlet weak var settingCollectionView: UICollectionView!
     var currentMyPost:[Post] = []
     
+    var selectedPostedImageURL: String?
+    var selectedComment: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         settingCollectionView.dataSource = self
+        settingCollectionView.delegate = self
         
         // データベースからユーザー名とプロフィール画像を取り出し表示
         settingIconImageView.layer.cornerRadius = settingIconImageView.frame.size.width/2
@@ -98,6 +102,42 @@ class SettingViewController: UIViewController, UICollectionViewDataSource {
         cell.updateUI()
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedComment = currentMyPost[indexPath.row].comment
+        selectedPostedImageURL = currentMyPost[indexPath.row].postedImageURL
+        performSegue(withIdentifier: "toDetail", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail"{
+            
+            if let detailVC: SettingDetailViewController = segue.destination as? SettingDetailViewController {
+                let cell = sender as! UICollectionViewCell
+                let indexpath = settingCollectionView.indexPath(for: cell)
+                if let index = indexpath?[1]{
+                    detailVC.settingComment.text = selectedComment
+                    print("index is \(index). & currentMyPost[index].comment is \(currentMyPost[index].comment)")
+                    let decodPostedData = NSData(base64Encoded: selectedPostedImageURL!, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
+                    let decodePostedImage = UIImage(data: decodPostedData! as Data)
+                    detailVC.settingPostedImage.image = decodePostedImage!
+                    print("prepare for segue is successed!")
+                    selectedComment = String()
+                    selectedPostedImageURL = String()
+                }
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell:SettingCollectionViewCell = collectionView.cellForItem(at: indexPath) as? SettingCollectionViewCell else {
+            return //the cell is not visible
+        }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            cell.postImage.alpha = 0.6
+        })
     }
     
     override func didReceiveMemoryWarning() {
