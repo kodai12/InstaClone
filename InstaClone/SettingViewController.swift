@@ -41,10 +41,6 @@ class SettingViewController: UIViewController, UICollectionViewDataSource {
             }
         })
         
-        /*
-         ログイン中のユーザーの投稿した画像を取得する
-         ifでcurrentUserのuidとPostsの中のuserIdが一致した場合という条件文で場合分け
-         */
         currentMyPost = []
         loadMyData()
         settingCollectionView.reloadData()
@@ -53,10 +49,10 @@ class SettingViewController: UIViewController, UICollectionViewDataSource {
     func loadMyData() {
         let userRef = Database.database().reference(fromURL: "https://instaclone-653d2.firebaseio.com/")
         var postsMap = [Int:Post]()
-        userRef.child("Posts").observeSingleEvent(of: .value, with: {(snapshot) in
+        userRef.child("Posts").observe(.value, with: {(snapshot) in
             for (postId,child) in snapshot.children.enumerated() {
                 let key:String = (child as AnyObject).key
-                userRef.child("Posts").child(key).queryOrdered(byChild: (Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: {(snapshot) in
+                userRef.child("Posts").child(key).queryOrdered(byChild: (Auth.auth().currentUser?.uid)!).observe(.value, with: {(snapshot) in
                     postsMap[postId] = self.extractPosts(snapshot)
                     var sortedPosts = [Post]()
                     for (postId,_) in snapshot.children.enumerated() {
@@ -91,7 +87,7 @@ class SettingViewController: UIViewController, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! SettingCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "settingCell", for: indexPath) as! SettingCollectionViewCell
         
         // 取得したpostedImageをviewに表示
         let post = currentMyPost[indexPath.row]
