@@ -13,4 +13,15 @@ struct Post {
     let profileImageURL: String
     let postedImageURL: String
     let comment: String
+    var userDidLike: Bool
+    var numberOfDidLikes: Int
+    
+    init(userName:String, profileImageURL:String, postedImageURL:String, comment:String, userDidLike:Bool, numberOfDidLikes:Int) {
+        self.userName = userName
+        self.profileImageURL = profileImageURL
+        self.postedImageURL = postedImageURL
+        self.comment = comment
+        self.userDidLike = userDidLike
+        self.numberOfDidLikes = numberOfDidLikes
+    }
 }

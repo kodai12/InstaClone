@@ -11,8 +11,6 @@ import Firebase
 
 class SettingDetailViewController: UIViewController {
 
-    var selectedPost:[Post] = []
-
     @IBOutlet weak var settingIconImage: UIImageView!
     @IBOutlet weak var settingUserName: UILabel!
     @IBOutlet weak var settingPostedImage: UIImageView!

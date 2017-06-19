@@ -71,8 +71,9 @@ class ConfirmPostViewController: UIViewController {
             iconData = UIImageJPEGRepresentation(tempIconImage, 0.1)! as NSData
         }
         let iconImage = iconData.base64EncodedString(options:NSData.Base64EncodingOptions.lineLength64Characters)
+        let numberOfDidLikes:Int = 0
         //dict型でまとめる
-        let user:NSDictionary = ["userID":userID!, "userName":userName, "comment":comment,"profileImage":iconImage,"postedImage":postImage]
+        let user:NSDictionary = ["userID":userID!, "userName":userName, "comment":comment,"profileImage":iconImage,"postedImage":postImage,"userDidLike":false,"numberOfDidLikes":numberOfDidLikes]
         databaseRef.child("Posts").childByAutoId().setValue(user)
         //投稿が完了したらタイムラインに戻る
         let firstTVC: firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "firstTBC") as! firstViewController

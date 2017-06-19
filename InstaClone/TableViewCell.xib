@@ -39,8 +39,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2HH-W7-PLj" customClass="DesignableButton" customModule="InstaClone" customModuleProvider="target">
-                        <rect key="frame" x="8" y="387" width="60" height="40"/>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2HH-W7-PLj" customClass="DesignableButton" customModule="InstaClone" customModuleProvider="target">
+                        <rect key="frame" x="8" y="387" width="125" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="SYX-yM-lsZ"/>
                             <constraint firstAttribute="width" constant="60" id="cRG-CY-m93"/>
@@ -50,8 +50,8 @@
                             <action selector="clickLikeButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="b6O-z3-QxN"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roq-59-5hG" customClass="DesignableButton" customModule="InstaClone" customModuleProvider="target">
-                        <rect key="frame" x="76" y="387" width="65" height="40"/>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roq-59-5hG" customClass="DesignableButton" customModule="InstaClone" customModuleProvider="target">
+                        <rect key="frame" x="141" y="387" width="65" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="UnD-In-co7"/>
                             <constraint firstAttribute="width" constant="65" id="clR-MV-eWW"/>
@@ -79,8 +79,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13F-3S-FHX" customClass="DesignableButton" customModule="InstaClone" customModuleProvider="target">
-                        <rect key="frame" x="149" y="387" width="60" height="40"/>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13F-3S-FHX" customClass="DesignableButton" customModule="InstaClone" customModuleProvider="target">
+                        <rect key="frame" x="214" y="387" width="60" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="dD9-dF-AeZ"/>
                             <constraint firstAttribute="height" constant="40" id="ffv-NR-sMX"/>

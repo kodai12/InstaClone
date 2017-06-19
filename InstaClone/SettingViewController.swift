@@ -79,7 +79,9 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
         let comment = data["comment"] as! String
         let profileImageURL = data["profileImage"] as! String
         let postedImageURL = data["postedImage"] as! String
-        return Post(userName: userName, profileImageURL: profileImageURL, postedImageURL: postedImageURL, comment: comment)
+        let userDidLike = data["userDidLike"] as! Bool
+        let numberOfDidLikes = data["numberOfDidLikes"] as! Int
+        return Post(userName: userName, profileImageURL: profileImageURL, postedImageURL: postedImageURL, comment: comment, userDidLike:userDidLike, numberOfDidLikes:numberOfDidLikes)
     }
     
     @IBAction func clickSetting(_ sender: Any) {
@@ -122,16 +124,6 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
                 }
             }
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let cell:SettingCollectionViewCell = collectionView.cellForItem(at: indexPath) as? SettingCollectionViewCell else {
-            return //the cell is not visible
-        }
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            cell.postImage.alpha = 0.6
-        })
     }
     
     override func didReceiveMemoryWarning() {

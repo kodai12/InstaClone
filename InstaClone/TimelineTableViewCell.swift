@@ -20,7 +20,13 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var commentButton: DesignableButton!
     @IBOutlet weak var snsButton: DesignableButton!
     
-    var getPost:[Post] = []
+    var post: Post!{
+        didSet{
+            updateUI()
+        }
+    }
+    
+    private var currentUserDidLike: Bool = false
     
     func updateUI(){
         
@@ -28,6 +34,9 @@ class TimelineTableViewCell: UITableViewCell {
         iconImageView.clipsToBounds = true
         postedImageView.layer.cornerRadius = 5.0
         postedImageView.clipsToBounds = true
+        
+        //ロード時のLike数を反映したLI¥ikeButtonを設定
+        likeButton.setTitle("\(post.numberOfDidLikes)👍", for: .normal)
         
     }
     
@@ -46,6 +55,8 @@ class TimelineTableViewCell: UITableViewCell {
         snsButton.borderWidth = 1.0
         snsButton.borderColor = UIColor.lightGray
         snsButton.tintColor = UIColor.lightGray
+        
+        configureButtonUI()
     }
     
     override func awakeFromNib() {
@@ -67,6 +78,15 @@ class TimelineTableViewCell: UITableViewCell {
         likeButton.velocity = 0.2
         likeButton.animate()
         
+        post.userDidLike = !post.userDidLike
+        if post.userDidLike{
+            post.numberOfDidLikes += 1
+        } else{
+            post.numberOfDidLikes -= 1
+        }
+        currentUserDidLike = post.userDidLike
+        
+        likeButton.setTitle("\(post.numberOfDidLikes)👍", for: .normal)
     }
     
     @IBAction func clickCommentButton(_ sender: Any) {

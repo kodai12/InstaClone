@@ -80,8 +80,10 @@ class Login2ViewController: UIViewController,UIImagePickerControllerDelegate,UIT
         //dict型でまとめる
         let user:NSDictionary = ["userID":userID!, "userName":userName,"profileImage":iconImage]
         databaseRef.child("Users").childByAutoId().setValue(user)
-        //投稿が完了したらタイムラインに戻る
-        _ = self.navigationController?.popToViewController((navigationController?.viewControllers[0])!, animated: true)
+        UserDefaults.standard.set("loginCheck", forKey: "loginCheck")
+        //投稿が完了したらタイムラインに遷移
+        let firstTVC: firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "firstTBC") as! firstViewController
+        self.present(firstTVC, animated: true, completion: nil)
     }
 
     @IBAction func firstSettingCancel(_ sender: Any) {

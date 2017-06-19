@@ -77,7 +77,9 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         let comment = data["comment"] as! String
         let profileImageURL = data["profileImage"] as! String
         let postedImageURL = data["postedImage"] as! String
-        return Post(userName: userName, profileImageURL: profileImageURL, postedImageURL: postedImageURL, comment: comment)
+        let userDidLike = data["userDidLike"] as! Bool
+        let numberOfDidLikes = data["numberOfDidLikes"] as! Int
+        return Post(userName: userName, profileImageURL: profileImageURL, postedImageURL: postedImageURL, comment: comment, userDidLike:userDidLike, numberOfDidLikes:numberOfDidLikes)
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,11 +113,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         let decodePostedImage = UIImage(data: decodPostedData! as Data)
         cell.postedImageView.image = decodePostedImage!
         
-        cell.updateUI()
-        cell.configureButtonUI()
-        
-        
-        cell.getPost = [post]
+        cell.post = post
         
         return cell
     }
