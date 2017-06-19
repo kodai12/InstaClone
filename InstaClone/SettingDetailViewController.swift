@@ -23,8 +23,10 @@ class SettingDetailViewController: UIViewController {
     @IBOutlet weak var settingCommentButton: DesignableButton!
     @IBOutlet weak var settingSNSButton: DesignableButton!
     
+    var tempPostedImageURL:String?
+    var tempComment:String?
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
         
         updateUI()
         configureButtonUI()
@@ -55,6 +57,15 @@ class SettingDetailViewController: UIViewController {
         settingIconImage.clipsToBounds = true
         settingPostedImage.layer.cornerRadius = 5.0
         settingPostedImage.clipsToBounds = true
+        
+        if tempComment != nil, tempPostedImageURL != nil{
+            settingComment.text = tempComment
+            let decodePostedData = NSData(base64Encoded: tempPostedImageURL!, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
+            let decodePostedImage = UIImage(data: decodePostedData as! Data)
+            settingPostedImage.image = decodePostedImage
+        } else {
+            print("tempComment or tempPostedImageURL are nil!")
+        }
     }
     
     func configureButtonUI(){

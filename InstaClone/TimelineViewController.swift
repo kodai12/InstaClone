@@ -25,7 +25,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
             let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "login")
             self.present(loginViewController!, animated: true, completion: nil)
         }else {
-            print("ログイン成功")
+            print("login success!")
             posts = []
             loadData()
             timelineTableView.reloadData()

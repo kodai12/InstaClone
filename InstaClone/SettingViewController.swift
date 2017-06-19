@@ -107,24 +107,18 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedComment = currentMyPost[indexPath.row].comment
         selectedPostedImageURL = currentMyPost[indexPath.row].postedImageURL
-        performSegue(withIdentifier: "toDetail", sender: indexPath)
+        if selectedComment != nil{
+            performSegue(withIdentifier: "toDetail", sender: indexPath)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail"{
             
             if let detailVC: SettingDetailViewController = segue.destination as? SettingDetailViewController {
-                let cell = sender as! UICollectionViewCell
-                let indexpath = settingCollectionView.indexPath(for: cell)
-                if let index = indexpath?[1]{
-                    detailVC.settingComment.text = selectedComment
-                    print("index is \(index). & currentMyPost[index].comment is \(currentMyPost[index].comment)")
-                    let decodPostedData = NSData(base64Encoded: selectedPostedImageURL!, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
-                    let decodePostedImage = UIImage(data: decodPostedData! as Data)
-                    detailVC.settingPostedImage.image = decodePostedImage!
-                    print("prepare for segue is successed!")
-                    selectedComment = String()
-                    selectedPostedImageURL = String()
+                if let unwrappedComment = selectedComment, let unwrappedPostedImageURL = selectedPostedImageURL{
+                    detailVC.tempComment = unwrappedComment
+                    detailVC.tempPostedImageURL = unwrappedPostedImageURL
                 }
             }
         }
