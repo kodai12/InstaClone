@@ -19,6 +19,8 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
     var selectedPostedImageURL: String?
     var selectedComment: String?
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,8 +50,21 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
         currentMyPost = []
         loadMyData()
         settingCollectionView.reloadData()
+        // UIRefreshControlの設定
+        refreshControl.attributedTitle = NSAttributedString(string: "refresh view")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        settingCollectionView.addSubview(refreshControl)
+    
     }
     
+
+    func refresh(){
+        currentMyPost = []
+        loadMyData()
+        settingCollectionView.reloadData()
+        refreshControl.endRefreshing()
+    }
+
     func loadMyData() {
         let userRef = Database.database().reference(fromURL: "https://instaclone-653d2.firebaseio.com/")
         var postsMap = [Int:Post]()
@@ -87,6 +102,30 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBAction func clickSetting(_ sender: Any) {
         performSegue(withIdentifier: "toSetting", sender: nil)
     }
+    
+    @IBAction func clickSignOut(_ sender: Any) {
+        let alertViewController = UIAlertController(title: "サインアウトしますか？", message: "", preferredStyle: .actionSheet)
+        let signOutAction = UIAlertAction(title: "OK", style: .default, handler:{ (action:UIAlertAction) -> Void in
+            self.signOutAction()})
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alertViewController.addAction(signOutAction)
+        alertViewController.addAction(cancelAction)
+        present(alertViewController, animated: true, completion: nil)
+    }
+    
+    func signOutAction(){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            UserDefaults.standard.removeObject(forKey: "loginCheck")
+            //ログイン画面に遷移
+            let loginVC: LoginViewController = self.storyboard?.instantiateViewController(withIdentifier: "loginVC") as! LoginViewController
+            self.present(loginVC, animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentMyPost.count

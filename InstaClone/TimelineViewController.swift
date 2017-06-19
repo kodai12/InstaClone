@@ -22,8 +22,8 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         timelineTableView.dataSource = self
         
         if UserDefaults.standard.object(forKey: "loginCheck") == nil {
-            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "login")
-            self.present(loginViewController!, animated: true, completion: nil)
+            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "loginVC") as! LoginViewController
+            self.present(loginViewController, animated: true, completion: nil)
         }else {
             print("login success!")
             posts = []
@@ -39,6 +39,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
             refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
             timelineTableView.addSubview(refreshControl)
         }
+        
     }
     
     func refresh(){

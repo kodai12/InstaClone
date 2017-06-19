@@ -227,6 +227,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Instagram?" id="KUH-Iv-igr">
+                        <barButtonItem key="leftBarButtonItem" title="sign out" id="3eP-dv-Qul">
+                            <connections>
+                                <action selector="clickSignOut:" destination="zZ7-5k-VqC" id="9XJ-h1-B7F"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="setting" id="qdR-fQ-V3Q">
                             <connections>
                                 <action selector="clickSetting:" destination="zZ7-5k-VqC" id="10K-cv-7fe"/>
@@ -616,7 +621,7 @@
         <!--Login View Controller-->
         <scene sceneID="C0n-ea-Qb2">
             <objects>
-                <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Feu-f8-gSL" customClass="LoginViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Feu-f8-gSL" customClass="LoginViewController" customModule="InstaClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VpG-C4-HbP"/>
                         <viewControllerLayoutGuide type="bottom" id="Tbi-Br-lfr"/>

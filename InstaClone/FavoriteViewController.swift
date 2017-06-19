@@ -14,6 +14,8 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var favoriteTableView: UITableView!
     var favoritePosts:[Post] = []
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +25,18 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         favoritePosts = []
         loadData()
         favoriteTableView.reloadData()
+        
+        // UIRefreshControlの設定
+        refreshControl.attributedTitle = NSAttributedString(string: "refresh view")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        favoriteTableView.addSubview(refreshControl)
+    }
+    
+    func refresh(){
+        favoritePosts = []
+        loadData()
+        favoriteTableView.reloadData()
+        refreshControl.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {

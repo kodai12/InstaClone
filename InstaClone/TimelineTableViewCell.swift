@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TimelineTableViewCell: UITableViewCell {
 
@@ -19,6 +20,8 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: DesignableButton!
     @IBOutlet weak var commentButton: DesignableButton!
     @IBOutlet weak var snsButton: DesignableButton!
+    
+    var index: Int?
     
     var post: Post!{
         didSet{
@@ -36,7 +39,7 @@ class TimelineTableViewCell: UITableViewCell {
         postedImageView.clipsToBounds = true
         
         //ロード時のLike数を反映したLI¥ikeButtonを設定
-        likeButton.setTitle("\(post.numberOfDidLikes)👍", for: .normal)
+        likeButton.setTitle("\(post.numberOfDidLikes) 👍", for: .normal)
         
     }
     
@@ -78,6 +81,7 @@ class TimelineTableViewCell: UITableViewCell {
         likeButton.velocity = 0.2
         likeButton.animate()
         
+        print("before: currentUserDidLike is \(currentUserDidLike). post.userDidLike is \(post.numberOfDidLikes)")
         post.userDidLike = !post.userDidLike
         if post.userDidLike{
             post.numberOfDidLikes += 1
@@ -86,7 +90,18 @@ class TimelineTableViewCell: UITableViewCell {
         }
         currentUserDidLike = post.userDidLike
         
-        likeButton.setTitle("\(post.numberOfDidLikes)👍", for: .normal)
+        likeButton.setTitle("\(post.numberOfDidLikes) 👍", for: .normal)
+        
+        let updateValues = ["userDidLike":currentUserDidLike, "numberOfDidLikes":post.numberOfDidLikes] as [String : Any]
+        let userRef = Database.database().reference(fromURL: "https://instaclone-653d2.firebaseio.com/")
+        userRef.child("Posts").observeSingleEvent(of: .value, with: {(snapShot) in
+            for (_, child) in snapShot.children.enumerated() {
+                let key:String = (child as AnyObject).key
+                print("key is \(key)")
+                userRef.child("Posts").child(key).updateChildValues(updateValues)
+            }
+        })
+        print("updated: currentUserDidLike is \(currentUserDidLike). post.userDidLike is \(post.numberOfDidLikes)")
     }
     
     @IBAction func clickCommentButton(_ sender: Any) {

@@ -72,8 +72,12 @@ class LoginViewController: UIViewController {
             if let user = user{
                 print("login success! user: \(user)")
                 UserDefaults.standard.set("loginCheck", forKey: "loginCheck")
-                let firstTVC: firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "firstTBC") as! firstViewController
-                self.present(firstTVC, animated: true, completion: nil)
+                // whose view is not in the window hierarchyを避けるためにdelayを設定
+                let delay = DispatchTime.now() + 0.2
+                DispatchQueue.main.asyncAfter(deadline: delay){
+                    let firstTVC: firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "firstTBC") as! firstViewController
+                    self.present(firstTVC, animated: true, completion: nil)
+                }
             }
         })
     }
