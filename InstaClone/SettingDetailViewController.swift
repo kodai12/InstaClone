@@ -29,15 +29,14 @@ class SettingDetailViewController: UIViewController {
     // セルを特定するための空の変数を用意
     var index:Int?
     
-    var post: Post!{
-        didSet{
-            updateUI()
-            configureButtonUI()
-        }
-    }
+    var post: Post!
     var currentUserDidLike: Bool = false
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateUI()
+        configureButtonUI()
         
         let userRef = Database.database().reference()
         userRef.child("Users").observeSingleEvent(of: .value, with: {(snapshot) in
@@ -60,11 +59,6 @@ class SettingDetailViewController: UIViewController {
     }
     
     func updateUI(){
-        settingIconImage.layer.cornerRadius = settingIconImage.layer.bounds.width/2
-        settingIconImage.clipsToBounds = true
-        settingPostedImage.layer.cornerRadius = 5.0
-        settingPostedImage.clipsToBounds = true
-        
         if tempComment != nil, tempPostedImageURL != nil{
             settingComment.text = tempComment
             let decodePostedData = NSData(base64Encoded: tempPostedImageURL!, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
@@ -73,6 +67,11 @@ class SettingDetailViewController: UIViewController {
         } else {
             print("tempComment or tempPostedImageURL are nil!")
         }
+        
+        settingIconImage.layer.cornerRadius = settingIconImage.layer.bounds.width/2
+        settingIconImage.clipsToBounds = true
+        settingPostedImage.layer.cornerRadius = 5.0
+        settingPostedImage.clipsToBounds = true
         
         settingLikeButton.setTitle("\(post.numberOfDidLikes) 👍", for: .normal)
     }

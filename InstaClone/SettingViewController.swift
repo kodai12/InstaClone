@@ -166,10 +166,14 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
         if segue.identifier == "toDetail"{
             
             if let detailVC: SettingDetailViewController = segue.destination as? SettingDetailViewController {
-                if let unwrappedComment = selectedComment, let unwrappedPostedImageURL = selectedPostedImageURL{
+                if let unwrappedComment = selectedComment,let unwrappedPostedImageURL = selectedPostedImageURL{
+                    
                     detailVC.tempComment = unwrappedComment
                     detailVC.tempPostedImageURL = unwrappedPostedImageURL
                     detailVC.index = index
+                    detailVC.post = currentMyPost[index!]
+                } else {
+                    print("could not unwrapped")
                 }
             }
         }
