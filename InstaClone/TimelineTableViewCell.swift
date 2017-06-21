@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import Social
+
 
 class TimelineTableViewCell: UITableViewCell {
 
@@ -22,6 +24,8 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var snsButton: DesignableButton!
     
     var index: Int?
+    
+    var myComposeView:SLComposeViewController?
     
     var post: Post!{
         didSet{
@@ -121,6 +125,42 @@ class TimelineTableViewCell: UITableViewCell {
         snsButton.damping = 0.1
         snsButton.velocity = 0.2
         snsButton.animate()
+        
+        let alertViewController = UIAlertController(title: "Share?", message: "", preferredStyle: .actionSheet)
+        let twitterShareAction = UIAlertAction(title: "on Twitter", style: .default, handler:{ (action:UIAlertAction) -> Void in
+            self.shareTwitter()
+        })
+        let FBShareAction = UIAlertAction(title: "on Facebook", style: .default, handler:{ (action:UIAlertAction) -> Void in
+            self.shareFB()
+        })
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alertViewController.addAction(twitterShareAction)
+        alertViewController.addAction(FBShareAction)
+        alertViewController.addAction(cancelAction)
+        self.window?.rootViewController?.present(alertViewController, animated: true, completion: nil)
+        
+        shareTwitter()
+        shareFB()
+    }
+    
+    func shareTwitter(){
+        myComposeView = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        //投稿するテキスト
+        let string = "Photo by " + underUserNameLabel.text!
+        myComposeView?.setInitialText(string)
+        myComposeView?.add(postedImageView?.image)
+        //表示する
+        self.window?.rootViewController?.present(myComposeView!, animated: true, completion: nil)
+    }
+    
+    func shareFB(){
+        myComposeView = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        //投稿するテキスト
+        let string = "Photo by " + underUserNameLabel.text!
+        myComposeView?.setInitialText(string)
+        myComposeView?.add(postedImageView?.image)
+        //表示する
+        self.window?.rootViewController?.present(myComposeView!, animated: true, completion: nil)
     }
     
     
