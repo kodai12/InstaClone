@@ -138,15 +138,13 @@ class TimelineTableViewCell: UITableViewCell {
         alertViewController.addAction(FBShareAction)
         alertViewController.addAction(cancelAction)
         self.window?.rootViewController?.present(alertViewController, animated: true, completion: nil)
-        
-        shareTwitter()
-        shareFB()
+
     }
     
     func shareTwitter(){
         myComposeView = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
         //投稿するテキスト
-        let string = "Photo by " + underUserNameLabel.text!
+        let string = "Photo by " + userNameLabel.text!
         myComposeView?.setInitialText(string)
         myComposeView?.add(postedImageView?.image)
         //表示する
@@ -156,7 +154,7 @@ class TimelineTableViewCell: UITableViewCell {
     func shareFB(){
         myComposeView = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         //投稿するテキスト
-        let string = "Photo by " + underUserNameLabel.text!
+        let string = "Photo by " + userNameLabel.text!
         myComposeView?.setInitialText(string)
         myComposeView?.add(postedImageView?.image)
         //表示する

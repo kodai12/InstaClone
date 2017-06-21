@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Social
 
 class SettingDetailViewController: UIViewController {
 
@@ -23,6 +24,8 @@ class SettingDetailViewController: UIViewController {
     
     var tempPostedImageURL:String?
     var tempComment:String?
+    
+    var myComposeView:SLComposeViewController?
     
     override func viewDidLoad() {
         
@@ -114,6 +117,38 @@ class SettingDetailViewController: UIViewController {
         settingSNSButton.velocity = 0.2
         settingSNSButton.animate()
     
+        let alertViewController = UIAlertController(title: "Share?", message: "", preferredStyle: .actionSheet)
+        let twitterShareAction = UIAlertAction(title: "on Twitter", style: .default, handler:{ (action:UIAlertAction) -> Void in
+            self.shareTwitter()
+        })
+        let FBShareAction = UIAlertAction(title: "on Facebook", style: .default, handler:{ (action:UIAlertAction) -> Void in
+            self.shareFB()
+        })
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alertViewController.addAction(twitterShareAction)
+        alertViewController.addAction(FBShareAction)
+        alertViewController.addAction(cancelAction)
+        self.present(alertViewController, animated: true, completion: nil)
+    }
+    
+    func shareTwitter(){
+        myComposeView = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        //投稿するテキスト
+        let string = "Photo by " + settingUserName.text!
+        myComposeView?.setInitialText(string)
+        myComposeView?.add(settingPostedImage?.image)
+        //表示する
+        self.present(myComposeView!, animated: true, completion: nil)
+    }
+    
+    func shareFB(){
+        myComposeView = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        //投稿するテキスト
+        let string = "Photo by " + settingUserName.text!
+        myComposeView?.setInitialText(string)
+        myComposeView?.add(settingPostedImage?.image)
+        //表示する
+        self.present(myComposeView!, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

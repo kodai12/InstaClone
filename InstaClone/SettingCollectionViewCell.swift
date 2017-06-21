@@ -17,4 +17,5 @@ class SettingCollectionViewCell: UICollectionViewCell {
         postImage.clipsToBounds = true
         
     }
+    
 }
