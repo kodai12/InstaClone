@@ -18,8 +18,9 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
     
     var selectedPostedImageURL: String?
     var selectedComment: String?
-    
     let refreshControl = UIRefreshControl()
+    // セルを特定するための空の変数を用意
+    var index:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
         settingCollectionView.dataSource = self
         settingCollectionView.delegate = self
         
-        // データベースからユーザー名とプロフィール画像を取り出し表示
+        // データベースからvarーザー名とプロフィール画像を取り出し表示
         settingIconImageView.layer.cornerRadius = settingIconImageView.frame.size.width/2
         settingIconImageView.clipsToBounds = true
         
@@ -148,6 +149,14 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedComment = currentMyPost[indexPath.row].comment
         selectedPostedImageURL = currentMyPost[indexPath.row].postedImageURL
+        // Likeボタンが押された時に押されたPostのUserDidLikeとNumberOfDidLikesを更新
+        // 押されたセルを特定するIndexPathの値を取得し、PostのID順に並べ直し、セルに値を渡す
+        let reversedIndex = indexPath.row
+        var array = [Int]()
+        for i in (0...currentMyPost.count - 1).reversed(){
+            array.append(i)
+        }
+        index = array[reversedIndex]
         if selectedComment != nil{
             performSegue(withIdentifier: "toDetail", sender: indexPath)
         }
@@ -160,6 +169,7 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
                 if let unwrappedComment = selectedComment, let unwrappedPostedImageURL = selectedPostedImageURL{
                     detailVC.tempComment = unwrappedComment
                     detailVC.tempPostedImageURL = unwrappedPostedImageURL
+                    detailVC.index = index
                 }
             }
         }

@@ -26,12 +26,18 @@ class SettingDetailViewController: UIViewController {
     var tempComment:String?
     
     var myComposeView:SLComposeViewController?
+    // セルを特定するための空の変数を用意
+    var index:Int?
+    
+    var post: Post!{
+        didSet{
+            updateUI()
+            configureButtonUI()
+        }
+    }
+    var currentUserDidLike: Bool = false
     
     override func viewDidLoad() {
-        
-        updateUI()
-        configureButtonUI()
-        
         
         let userRef = Database.database().reference()
         userRef.child("Users").observeSingleEvent(of: .value, with: {(snapshot) in
@@ -67,6 +73,8 @@ class SettingDetailViewController: UIViewController {
         } else {
             print("tempComment or tempPostedImageURL are nil!")
         }
+        
+        settingLikeButton.setTitle("\(post.numberOfDidLikes) 👍", for: .normal)
     }
     
     func configureButtonUI(){
@@ -94,6 +102,27 @@ class SettingDetailViewController: UIViewController {
         settingLikeButton.damping = 0.1
         settingLikeButton.velocity = 0.2
         settingLikeButton.animate()
+        
+        post.userDidLike = !post.userDidLike
+        if post.userDidLike{
+            post.numberOfDidLikes += 1
+        } else{
+            post.numberOfDidLikes -= 1
+        }
+        currentUserDidLike = post.userDidLike
+        settingLikeButton.setTitle("\(post.numberOfDidLikes) 👍", for: .normal)
+        
+        // ボタンが押された時にDatabaseの値を更新
+        let updateValues = ["userDidLike":currentUserDidLike, "numberOfDidLikes":post.numberOfDidLikes] as [String : Any]
+        let userRef = Database.database().reference(fromURL: "https://instaclone-653d2.firebaseio.com/")
+        var keys = [String]()
+        userRef.child("Posts").observeSingleEvent(of: .value, with: {(snapShot) in
+            for (_, child) in snapShot.children.enumerated() {
+                let key:String = (child as AnyObject).key
+                keys.append(key)
+            }
+            userRef.child("Posts").child(keys[self.index!]).updateChildValues(updateValues)
+        })
     
     }
 
@@ -118,10 +147,10 @@ class SettingDetailViewController: UIViewController {
         settingSNSButton.animate()
     
         let alertViewController = UIAlertController(title: "Share?", message: "", preferredStyle: .actionSheet)
-        let twitterShareAction = UIAlertAction(title: "on Twitter", style: .default, handler:{ (action:UIAlertAction) -> Void in
+        let twitterShareAction = UIAlertAction(title: "Twitter", style: .default, handler:{ (action:UIAlertAction) -> Void in
             self.shareTwitter()
         })
-        let FBShareAction = UIAlertAction(title: "on Facebook", style: .default, handler:{ (action:UIAlertAction) -> Void in
+        let FBShareAction = UIAlertAction(title: "Facebook", style: .default, handler:{ (action:UIAlertAction) -> Void in
             self.shareFB()
         })
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)

@@ -116,6 +116,8 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         
         cell.post = post
         
+        // Likeボタンが押された時に押されたPostのUserDidLikeとNumberOfDidLikesを更新
+        // 押されたセルを特定するIndexPathの値を取得し、PostのID順に並べ直し、セルに値を渡す
         let index = indexPath.row
         var array = [Int]()
         for i in (0...posts.count - 1).reversed(){

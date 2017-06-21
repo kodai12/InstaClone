@@ -22,7 +22,7 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: DesignableButton!
     @IBOutlet weak var commentButton: DesignableButton!
     @IBOutlet weak var snsButton: DesignableButton!
-    
+    // セルを特定するための空の変数を用意
     var index: Int?
     
     var myComposeView:SLComposeViewController?
@@ -85,7 +85,6 @@ class TimelineTableViewCell: UITableViewCell {
         likeButton.velocity = 0.2
         likeButton.animate()
         
-        print("before: currentUserDidLike is \(currentUserDidLike). post.userDidLike is \(post.numberOfDidLikes)")
         post.userDidLike = !post.userDidLike
         if post.userDidLike{
             post.numberOfDidLikes += 1
@@ -93,9 +92,9 @@ class TimelineTableViewCell: UITableViewCell {
             post.numberOfDidLikes -= 1
         }
         currentUserDidLike = post.userDidLike
-        
         likeButton.setTitle("\(post.numberOfDidLikes) 👍", for: .normal)
         
+        // ボタンが押された時にDatabaseの値を更新
         let updateValues = ["userDidLike":currentUserDidLike, "numberOfDidLikes":post.numberOfDidLikes] as [String : Any]
         let userRef = Database.database().reference(fromURL: "https://instaclone-653d2.firebaseio.com/")
         var keys = [String]()
@@ -106,7 +105,6 @@ class TimelineTableViewCell: UITableViewCell {
             }
             userRef.child("Posts").child(keys[self.index!]).updateChildValues(updateValues)
         })
-        print("updated: currentUserDidLike is \(currentUserDidLike). post.userDidLike is \(post.numberOfDidLikes)")
     }
     
     @IBAction func clickCommentButton(_ sender: Any) {
@@ -127,10 +125,10 @@ class TimelineTableViewCell: UITableViewCell {
         snsButton.animate()
         
         let alertViewController = UIAlertController(title: "Share?", message: "", preferredStyle: .actionSheet)
-        let twitterShareAction = UIAlertAction(title: "on Twitter", style: .default, handler:{ (action:UIAlertAction) -> Void in
+        let twitterShareAction = UIAlertAction(title: "Twitter", style: .default, handler:{ (action:UIAlertAction) -> Void in
             self.shareTwitter()
         })
-        let FBShareAction = UIAlertAction(title: "on Facebook", style: .default, handler:{ (action:UIAlertAction) -> Void in
+        let FBShareAction = UIAlertAction(title: "Facebook", style: .default, handler:{ (action:UIAlertAction) -> Void in
             self.shareFB()
         })
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
