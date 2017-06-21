@@ -116,6 +116,13 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         
         cell.post = post
         
+        let index = indexPath.row
+        var array = [Int]()
+        for i in (0...posts.count - 1).reversed(){
+            array.append(i)
+        }
+        cell.index = array[index]
+        
         return cell
     }
     

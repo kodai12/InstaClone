@@ -51,7 +51,7 @@ class SettingViewController: UIViewController, UICollectionViewDataSource, UICol
         loadMyData()
         settingCollectionView.reloadData()
         // UIRefreshControlの設定
-        refreshControl.attributedTitle = NSAttributedString(string: "refresh view")
+        refreshControl.attributedTitle = NSAttributedString(string: "refresh list")
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         settingCollectionView.addSubview(refreshControl)
     

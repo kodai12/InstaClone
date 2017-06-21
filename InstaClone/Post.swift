@@ -24,4 +24,5 @@ struct Post {
         self.userDidLike = userDidLike
         self.numberOfDidLikes = numberOfDidLikes
     }
+    
 }

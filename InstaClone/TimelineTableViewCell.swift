@@ -94,12 +94,13 @@ class TimelineTableViewCell: UITableViewCell {
         
         let updateValues = ["userDidLike":currentUserDidLike, "numberOfDidLikes":post.numberOfDidLikes] as [String : Any]
         let userRef = Database.database().reference(fromURL: "https://instaclone-653d2.firebaseio.com/")
+        var keys = [String]()
         userRef.child("Posts").observeSingleEvent(of: .value, with: {(snapShot) in
             for (_, child) in snapShot.children.enumerated() {
                 let key:String = (child as AnyObject).key
-                print("key is \(key)")
-                userRef.child("Posts").child(key).updateChildValues(updateValues)
+                keys.append(key)
             }
+            userRef.child("Posts").child(keys[self.index!]).updateChildValues(updateValues)
         })
         print("updated: currentUserDidLike is \(currentUserDidLike). post.userDidLike is \(post.numberOfDidLikes)")
     }

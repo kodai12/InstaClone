@@ -746,30 +746,8 @@
                                     <action selector="clickFirstIconSetting:" destination="Hvx-TV-Q2e" eventType="touchUpInside" id="oW6-DJ-1pE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duY-fX-Zeh" customClass="SpringButton" customModule="InstaClone" customModuleProvider="target">
-                                <rect key="frame" x="106" y="287" width="162" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="16"/>
-                                <state key="normal" title="stting user name"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                        <real key="value" value="0.80000000000000004"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="damping">
-                                        <real key="value" value="0.10000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="velocity">
-                                        <real key="value" value="0.20000000000000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="spring"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="clickFirstUserNameSetting:" destination="Hvx-TV-Q2e" eventType="touchUpInside" id="6Lb-gr-XJf"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9a-PS-iEN" customClass="SpringButton" customModule="InstaClone" customModuleProvider="target">
-                                <rect key="frame" x="223" y="501" width="138" height="30"/>
+                                <rect key="frame" x="187" y="501" width="187.5" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="16"/>
                                 <state key="normal" title="confirm user setting"/>
@@ -791,7 +769,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjE-jW-dg8" customClass="SpringButton" customModule="InstaClone" customModuleProvider="target">
-                                <rect key="frame" x="61" y="501" width="45" height="30"/>
+                                <rect key="frame" x="0.0" y="501" width="187.5" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="16"/>
                                 <state key="normal" title="cancel"/>
@@ -819,6 +797,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duY-fX-Zeh" customClass="SpringButton" customModule="InstaClone" customModuleProvider="target">
+                                <rect key="frame" x="106" y="304" width="162" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="16"/>
+                                <state key="normal" title="stting user name"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="damping">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="velocity">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="spring"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickFirstUserNameSetting:" destination="Hvx-TV-Q2e" eventType="touchUpInside" id="6Lb-gr-XJf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -892,11 +892,11 @@
             </objects>
             <point key="canvasLocation" x="1320.8" y="1002.5487256371815"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--MyPage-->
         <scene sceneID="adj-Ch-VEO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J5Y-ep-RoT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="LYs-p7-2Vf"/>
+                    <tabBarItem key="tabBarItem" title="MyPage" id="LYs-p7-2Vf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WCj-99-v6l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
